@@ -1,20 +1,15 @@
+// tsconfig.node.json
 {
   "compilerOptions": {
-    "composite": true, // <--- MUST BE TRUE
+    "composite": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "jsx": "react-jsx", // This is fine, as Vite config might use JSX if you have React components there
+    "jsx": "react-jsx",
     "isolatedModules": true,
-    "types": ["node"], // <--- ESSENTIAL for Node.js-specific types
-    "lib": ["ESNext", "DOM"] // Include DOM for general utility, ESNext for modern JS features
-    // IMPORTANT: "noEmit": true MUST BE COMPLETELY ABSENT from this file.
-    // If you had it, delete the entire line, do not just comment it out.
+    "types": ["node"], // <--- This line is correct and necessary
+    "lib": ["ESNext", "DOM"]
   },
-  // <--- IMPORTANT: Only include Node.js-specific config files here.
-  // DO NOT include "src/**/*.ts" or "src/**/*.tsx" here.
   "include": ["vite.config.ts"]
-  // If you have other Node-specific files (e.g., vitest.config.ts, setupTests.ts for Node), add them here:
-  // "include": ["vite.config.ts", "vitest.config.ts", "scripts/**/*.ts"]
 }
