@@ -1,15 +1,23 @@
-// tsconfig.node.json
+// tsconfig.json (main project config)
 {
   "compilerOptions": {
-    "composite": true,
+    "target": "es2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["node"], // <--- This line is correct and necessary
-    "lib": ["ESNext", "DOM"]
+    "noEmit": true, // This is correct for your main app config
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+    // <<< IMPORTANT: The line "types": ["node"], MUST NOT BE HERE.
   },
-  "include": ["vite.config.ts"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

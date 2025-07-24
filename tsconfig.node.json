@@ -1,25 +1,19 @@
+// C:/Users/excel/OneDrive/Desktop/goutam/CLO Virtual Fashion/tsconfig.node.json
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
+    "composite": true, // <<< THIS MUST BE TRUE
     "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "types": ["node"],
+    "lib": ["ESNext", "DOM"]
+    // <<< IMPORTANT: The line "noEmit": true MUST BE COMPLETELY ABSENT from this file.
+    // <<< If you see it, delete the entire line. Do NOT just comment it out.
   },
   "include": ["vite.config.ts"]
+  // <<< IMPORTANT: Ensure "src/**/*.ts" and "src/**/*.tsx" ARE NOT INCLUDED HERE.
+  // <<< Your main tsconfig.json handles your application source.
 }
